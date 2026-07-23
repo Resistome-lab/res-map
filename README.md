@@ -1,0 +1,1 @@
+# res-map`n`nFunctional Resistome Profiler for Metagenomic Reads.`n`n## Installation`n````bash`npip install git+[https://github.com/Resistome-lab/res-map.git](https://github.com/Resistome-lab/res-map.git)`n````n`n## Usage`n````bash`nres-map --help`n```

@@ -14,7 +14,7 @@ import pandas as pd
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="res-map: Map metagenomic reads directly to a DIAMOND protein database."
+        description="res-map: Map metagenomic FASTQ reads against a protein database using DIAMOND.""
     )
     parser.add_argument(
         "-i", "--input", required=True, help="Path to input FASTQ file (.fastq or .fastq.gz)"

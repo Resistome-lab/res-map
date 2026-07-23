@@ -44,7 +44,7 @@ res-map --input sample.fastq.gz --db card_db.dmnd --outdir results_sample1 --thr
 ```
 You can change the options and file names according to your settings.
 
-###Step 3: look for the output files
+### Step 3: Look for the output files
 `res-map` automatically creates two output files inside your specified output directory (`--outdir`):
 1) `resmap_summary.tsv`: Quantified target summary sorted by mapped read abundance:
 a) `Target_Gene_ID`: Matched reference protein/gene header.

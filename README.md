@@ -20,7 +20,7 @@ Note: If `res-map` returns command not found after installation, add Python's us
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-Step 2: Install perequisites
+### Step 2: Install perequisites
 
 res-map requires `DIAMOND` to perform read alignments. Install it via Conda:
 ```bash

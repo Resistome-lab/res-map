@@ -87,6 +87,7 @@ res-map -i SRR39779725.fastq -d CARD_indexed.dmnd -o SRR17157204_results -t 8 --
 ```bash
 res-map -i SRR39779725_1.fastq -d CARD_indexed.dmnd -o SRR39779725_results -t 8 
 ```
+Or customized: 
 ```bash
 res-map -i SRR39779725_1.fastq -d CARD_indexed.dmnd -o SRR17157204_results -t 8 --id 10 --cov 10
 ```

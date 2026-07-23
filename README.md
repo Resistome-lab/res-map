@@ -22,7 +22,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 ### Step 2: Install perequisites
 
-res-map requires `DIAMOND` to perform read alignments. Install it via Conda:
+`res-map` requires `DIAMOND` to perform read alignments. Install it via Conda:
 ```bash
 conda install -c bioconda diamond
 ```

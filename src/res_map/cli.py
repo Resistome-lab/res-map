@@ -14,7 +14,7 @@ import pandas as pd
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="res-map: Map metagenomic FASTQ reads against a protein database using DIAMOND.""
+        description="res-map: Map metagenomic FASTQ reads against a protein database using DIAMOND."
     )
     parser.add_argument(
         "-i", "--input", required=True, help="Path to input FASTQ file (.fastq or .fastq.gz)"
@@ -27,6 +27,14 @@ def parse_args():
     )
     parser.add_argument(
         "-t", "--threads", type=int, default=4, help="Number of CPU threads [Default: 4]"
+    )
+    parser.add_argument(
+        "--id", "--identity", dest="identity", type=float, default=80.0,
+        help="Minimum sequence identity percentage [Default: 80]"
+    )
+    parser.add_argument(
+        "--cov", "--coverage", dest="coverage", type=float, default=75.0,
+        help="Minimum query coverage percentage [Default: 75]"
     )
     return parser.parse_args()
 
@@ -47,17 +55,17 @@ def count_fastq_reads(fastq_path):
     print(f"[INFO] Total reads detected: {read_count:,}")
     return read_count
 
-def run_diamond_alignment(fastq, db, out_m8, threads):
+def run_diamond_alignment(fastq, db, out_m8, threads, identity, coverage):
     """Aligns reads using DIAMOND blastx."""
-    print(f"[INFO] Aligning reads against {db} using DIAMOND...")
+    print(f"[INFO] Aligning reads against {db} using DIAMOND (Identity: {identity}%, Coverage: {coverage}%)...")
     cmd = [
         "diamond", "blastx",
         "--db", db,
         "--query", fastq,
         "--out", out_m8,
         "--outfmt", "6", "qseqid", "sseqid", "pident", "length", "evalue", "bitscore",
-        "--id", "80",          
-        "--query-cover", "75", 
+        "--id", str(identity),          
+        "--query-cover", str(coverage),  
         "--threads", str(threads),
         "--max-target-seqs", "1"
     ]
@@ -84,7 +92,7 @@ def process_alignments(m8_file, total_reads):
     if align_df.empty:
         return pd.DataFrame()
 
-    # Aggregate unique mapped reads per target target gene/protein
+    # Aggregate unique mapped reads per target gene/protein
     gene_summary = align_df.groupby('sseqid').agg(
         Mapped_Reads=('qseqid', 'nunique'),
         Avg_Identity=('pident', 'mean'),
@@ -109,7 +117,7 @@ def main():
     report_out = os.path.join(args.outdir, "resmap_summary.tsv")
 
     total_reads = count_fastq_reads(args.input)
-    run_diamond_alignment(args.input, args.db, m8_out, args.threads)
+    run_diamond_alignment(args.input, args.db, m8_out, args.threads, args.identity, args.coverage)
     
     res_df = process_alignments(m8_out, total_reads)
 

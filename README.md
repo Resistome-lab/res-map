@@ -42,10 +42,9 @@ To profile a sample FASTQ file (.fastq or compressed .fastq.gz), pass your input
 ```bash
 res-map --input sample.fastq.gz --db card_db.dmnd --outdir results_sample1 --threads 8
 ```
+You can change the options and file names according to your settings.
 
-### Step 3: Command-Line OptionsOptionShortRequiredDefaultDescription--input-iYes—Path to input sequencing reads (.fastq or .fastq.gz).--db-dYes—Path to pre-indexed DIAMOND database (.dmnd).--outdir-oNoresmap_outputOutput directory path.--threads-tNo4Number of CPU cores to assign.
-
-###Step 4: look for the output files
+###Step 3: look for the output files
 `res-map` automatically creates two output files inside your specified output directory (`--outdir`):
 1) `resmap_summary.tsv`: Quantified target summary sorted by mapped read abundance:
 a) `Target_Gene_ID`: Matched reference protein/gene header.

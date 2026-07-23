@@ -15,7 +15,7 @@ Install res-map directly from GitHub using `pip3` in your Linux/WSL environment:
 pip3 install git+https://github.com/Resistome-lab/res-map.git
 
 ```
-Note: If res-map returns command not found after installation, add Python's user binary path to your environment:
+Note: If `res-map` returns command not found after installation, add Python's user binary path to your environment:
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
 ```

@@ -20,7 +20,7 @@ Note: If `res-map` returns command not found after installation, add Python's us
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-### Step 2: Install perequisites
+### Step 2: Install prerequisites
 
 `res-map` requires `DIAMOND` to perform read alignments. Install it via Conda:
 ```bash
@@ -57,7 +57,7 @@ You can change the options and file names according to your settings.
 
 ---
 
-# `res-map` VALIDATION:
+# `res-map` VALIDATION
 
 ### To validate `res-map`, I download a metagenomic FASTQ file using `fasterq-dump`. Here, I use paired-end whole-genome sequencing (WGS) data for _Salmonella enterica_ from the study "PulseNet Salmonella enterica Genome Sequencing" (BioProject: PRJNA230403; SRA accession: SRR39779725)
 ### Run fasterq-dump with the accession number:

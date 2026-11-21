@@ -59,7 +59,7 @@ You can change the options and file names according to your settings.
 
 # `res-map` VALIDATION
 
-### To validate `res-map`, I download a metagenomic FASTQ file using `fasterq-dump`. Here, I use paired-end whole-genome sequencing (WGS) data for _Salmonella enterica_ from the study "PulseNet Salmonella enterica Genome Sequencing" (BioProject: PRJNA230403; SRA accession: SRR39779725)
+To validate `res-map`, I download a metagenomic FASTQ file using `fasterq-dump`. Here, I use paired-end whole-genome sequencing (WGS) data for _Salmonella enterica_ from the study "PulseNet Salmonella enterica Genome Sequencing" (BioProject: PRJNA230403; SRA accession: SRR39779725)
 ### Run fasterq-dump with the accession number:
 ```bash
 fasterq-dump SRR39779725 --progress --threads 8
